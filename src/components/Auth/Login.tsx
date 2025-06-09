@@ -56,7 +56,7 @@ export default function Login() {
                 </div>
                 <div>
                     <label className="block text-sm font-medium text-gray-700" htmlFor="password">Password</label>
-                    <input className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    <input className="mt-1 block w-full px-3 py-2 border border-cardBackground rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                         id="password"
                     name="password"
                     type="password"
@@ -68,7 +68,7 @@ export default function Login() {
                     <div className="text-red-500 text-sm">{formik.errors.password}</div>
                 ) : null}
             </div>
-            <button type="submit" className="mt-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">Login</button>
+            <button type="submit" className="mt-4 w-full bg-btnPrimary text-textHeading py-2 rounded-md hover:bg-btnHover">Login</button>
         </form>
         </div>
     )

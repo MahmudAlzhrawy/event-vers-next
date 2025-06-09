@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png", 
   },
   themeColor: "#000000",
-  manifest: "/manifest.json",
+
   appleWebApp: {
     capable: true,
     title: "Event-MS",
   },
-  metadataBase: new URL("https://event-ms.com"),
+  metadataBase: new URL("https://event-verse-xi.vercel.app"),
   alternates: {
-    canonical: "https://event-ms.com",
+    canonical: "https://event-verse-xi.vercel.app",
     types: {
       "application/rss+xml": "/feed.xml",
       "application/atom+xml": "/atom.xml",

@@ -19,7 +19,10 @@ export default function Login() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body:JSON.stringify(values)
+                body:JSON.stringify({
+                    email: values.email,
+                    password: values.password
+                })
             })
             if(res.ok){
                 const data = await res.json();

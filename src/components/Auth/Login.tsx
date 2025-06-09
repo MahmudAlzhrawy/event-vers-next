@@ -26,6 +26,7 @@ export default function Login() {
             })
             if(res.ok){
                 const data = await res.json();
+                alert('Login successful!');
                 localStorage.setItem('token', data.token);
                 window.location.href = '/';
             } else {

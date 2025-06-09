@@ -14,7 +14,7 @@ export default function Login() {
             .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/, 'Password must contain at least one uppercase letter, one lowercase letter, and one number')  
         }), 
         onSubmit:async(values)=>{
-            const res= await fetch(`${process.env.API_URL}/user/login`,{
+            const res= await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/login`,{
                 method:'POST',
                 headers: {
                     'Content-Type': 'application/json'

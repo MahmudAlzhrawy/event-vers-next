@@ -36,9 +36,6 @@ export default function Register() {
             console.log(API_URL)
             const res= await fetch(`${API_URL}/user/register`,{
                 method:'POST',
-                headers:{
-                    'Content-Type':'application/json'
-                },
                 body:formData
             })
             if(res.ok){

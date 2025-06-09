@@ -14,12 +14,12 @@ export default function Login() {
             .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/, 'Password must contain at least one uppercase letter, one lowercase letter, and one number')  
         }), 
         onSubmit:async()=>{
+            const formdata= new FormData();
+            formdata.append('email', formik.values.email);
+            formdata.append('password', formik.values.password)
             const res= await fetch(`${process.env.API_URL}/user/login`,{
                 method:'POST',
-                headers:{
-                    'Content-Type':'application/json'
-                },
-                body:JSON.stringify(formik.values)
+                body:formdata
             })
             if(res.ok){
                 const data = await res.json();

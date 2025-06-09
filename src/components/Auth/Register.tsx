@@ -46,7 +46,8 @@ export default function Register() {
 
             } else {
                 const data = await res.json();
-                alert(data.message || 'Registration failed');
+                console.log(data);
+                alert('Registration failed');
             }
         }
     })

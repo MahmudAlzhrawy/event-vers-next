@@ -45,8 +45,8 @@ export default function Register() {
                 window.location.href = '/';
 
             } else {
-                const errorData = await res.json();
-                alert(errorData.message || 'Registration failed');
+                const data = await res.json();
+                alert(data.message || 'Registration failed');
             }
         }
     })

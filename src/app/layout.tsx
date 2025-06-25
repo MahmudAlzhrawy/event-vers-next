@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png", 
   },
-  themeColor: "#000000",
+  
 
   appleWebApp: {
     capable: true,

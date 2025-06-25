@@ -1,18 +1,22 @@
-
 export default function Home() {
-  return (<>
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Welcome to Our Application</h2>
-        <p className="text-gray-600 text-center mb-4">Please log in to continue.</p>
-        <a href="/login" className="block w-full text-center bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200">
-          Go to Login
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center text-center px-4 bg-neutral-background">
+      <h1 className="text-5xl font-extrabold text-text-heading mb-4">
+        Welcome to <span className="text-button-primary">Eventverse</span>
+      </h1>
+      <p className="text-lg max-w-xl text-text-body">
+        Eventverse is your modern solution to smart event management. <br />
+        Create, customize, and manage events with ease.
+      </p>
+
+      <div className="mt-6">
+        <a
+          href="/login"
+          className=" animate-pulse px-6 py-3 rounded-lg bg-button-primary text-white hover:bg-button-hover transition duration-300 font-medium shadow-md"
+        >
+          Get Started
         </a>
       </div>
     </div>
-    <footer className="text-center text-gray-500 text-sm mt-8">
-      &copy; {new Date().getFullYear()} Your Company Name. All rights reserved.
-    </footer>
-  </>
   );
 }

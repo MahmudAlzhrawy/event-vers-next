@@ -1,5 +1,6 @@
 "use client"
 import { useFormik } from "formik";
+import Link from "next/link";
 import * as Yup from 'yup';
 
 export default function Login() {
@@ -13,10 +14,6 @@ validationSchema: Yup.object().shape({
     password: Yup.string()
     .min(6, 'Password must be at least 6 characters')
     .required('Password is required')
-    .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/,
-        'Password must contain at least one uppercase letter, one lowercase letter, and one number'
-    )
 }),
 onSubmit: async (values) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/login`, {
@@ -35,7 +32,7 @@ onSubmit: async (values) => {
     localStorage.setItem('EventVerseId', data.data._id);
 
 
-    window.location.href = '/';
+    window.location.href = '/events';
     } else {
     const errorData = await res.json();
     alert(errorData.message || 'Login failed');
@@ -93,6 +90,9 @@ return (
         Login
         </button>
     </form>
+    <div className="py-2 text-center">
+        <p className="text-sm font-serif font-bold text-text-muted">Did you haven't an account?<Link href="/register" className="text-lg text-text-link">Sign up</Link> </p>
+    </div>
     </div>
 </div>
 );

@@ -1,14 +1,15 @@
-import React, { Children, createContext, Dispatch, SetStateAction, useEffect, useState } from "react"
+"use client"
+import React, {createContext, Dispatch, SetStateAction, useEffect, useState } from "react"
 
 interface Events{
     _id:string,
     title:string,
     privacy:string,
     description:string,
-    date:Date,
+    date:string,
     location:string,
     createdBy:CreatedBy,
-    createdAt:Date
+    createdAt:string
 }
 interface AddEvent{
     description:string,
@@ -16,10 +17,27 @@ interface AddEvent{
     privacy:string,
     date:Date,
     location:string,
-   
 }
 interface CreatedBy {
     name:string,
+}
+interface Tasks{
+    _id:string,
+    description:string,
+    title:string,
+    status:string,
+    eventId:{
+        title:string,
+    };
+    assignedTo:{
+        name:string,
+    }
+    createdAt:string
+}
+interface addTask{
+    title:string,
+    description:string,
+    status:string,
 }
 
 
@@ -43,6 +61,7 @@ export const ManageEventVerseContext =createContext<ManageContextProps>({
 
 const ManageContextProvider: React.FC<ManageProviderProps> = ({children})=>{
     const[events,setEvents]=useState<Events[]>([]);
+    const[tasks,setTasks]=useState<Tasks[]>([]);
     const[refreshCount,setRefresh]=useState<number>(0);
     const[Role,setRole]=useState<string|null>(null);
     const[Token,setToken]=useState<string|null>(null);
@@ -80,6 +99,7 @@ useEffect(()=>{
             })
             if(res.ok){
                 const {data} =await res.json();
+                console.log(data)
                 setEvents(data);
             }
             else{
@@ -93,7 +113,7 @@ useEffect(()=>{
         fetchEvents();
 
         
-},[refreshCount])
+},[refreshCount,Token,UserId,Role])
     const removeEvent =async(eventId:string)=>{
         try{
             const res =await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events/${eventId}`,{
